@@ -23,7 +23,9 @@ public class ProdutoRequest {
 	private Double preco;
 	
 	@Min(value = 0, message = "A quantidade em estoque não pode ser negativa.")
-	private int quantidadeEmEstoque;	
+	private int quantidadeEmEstoque;
+
+		
 	
 
 }

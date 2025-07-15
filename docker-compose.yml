@@ -1,16 +1,32 @@
+version: '3.8'
+
 services:
   postgres:
     image: postgres:16
     container_name: postgres16
     restart: unless-stopped
     environment:
-      POSTGRES_DB: bancopost
+      POSTGRES_DB: estoque
       POSTGRES_USER: usuariosuser
       POSTGRES_PASSWORD: usuariospassword
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
+  supermercado-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: supermercado-api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/estoque
+      SPRING_DATASOURCE_USERNAME: usuariosuser
+      SPRING_DATASOURCE_PASSWORD: usuariospassword
 
 volumes:
   postgres_data:
