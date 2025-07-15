@@ -5,7 +5,7 @@ Este projeto é um sistema completo (Back-end + Front-end) para **cadastrar, con
 
 💡 **Totalmente virtualizado com Docker**: você não precisa instalar Java, PostgreSQL ou Maven para rodar — tudo sobe com um simples comando via Docker Compose!
 
----
+
 
 ## ✅ Funcionalidades
 
